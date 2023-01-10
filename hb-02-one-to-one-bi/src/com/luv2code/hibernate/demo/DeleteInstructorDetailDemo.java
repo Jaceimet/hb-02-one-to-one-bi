@@ -46,6 +46,12 @@ public class DeleteInstructorDetailDemo {
 			// cascade delete the instructor detail
 			System.out.println("Deleting tempInstructorDetail: " 
 											+ tempInstructorDetail);
+			
+			// remove the associated object reference
+			// break bi-directional link
+			
+			tempInstructorDetail.getInstructor().setInstructorDetail(null);
+			
 			session.delete(tempInstructorDetail);
 			
 			//commit transaction
